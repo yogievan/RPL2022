@@ -83,13 +83,13 @@ class AuthController extends Controller
     }
     public function adminceklogin(Request $request)
     {
-        $user = User::where('username', $request->email)->where('password', md5($request->password))->first();
+        $user = User::where('username', $request->username)->where('password', md5($request->password))->first();
         $validatedData = $request->validate([
-            'username' => ['required'.'username = admin'],
+            'username' => ['required'],
             'password' => ['required']
         ]);
         Auth::login($user);
-        return redirect('/DashboardManager');
+        return redirect('/DashboardAdmin');
     }
     
     public function adminlogout()
@@ -98,9 +98,13 @@ class AuthController extends Controller
         return redirect('/admin/Login');
     }
 
+    public function managersignin()
+    {
+        return view('ManagerSign-in');
+    }
     public function managerceklogin(Request $request)
     {
-        $user = User::where('username', $request->email)->where('password', md5($request->password))->first();
+        $user = User::where('username', $request->username)->where('password', md5($request->password))->first();
         $validatedData = $request->validate([
             'username' => ['required'],
             'password' => ['required']
@@ -108,9 +112,9 @@ class AuthController extends Controller
         Auth::login($user);
         return redirect('/DashboardManager');
     }
-    
-    public function DashboardManager()
+    public function managerlogout()
     {
-        return view('manager.DashboardManager');
+        Auth::logout();
+        return redirect('/manager/Login');
     }
 }

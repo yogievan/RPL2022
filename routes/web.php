@@ -38,7 +38,6 @@ Route::get('/BookingLog/Shuttle/{id}', 'CustomerController@viewbookingLogShuttle
 Route::get('/BookingLog/Sewa/{id}', 'CustomerController@viewbookingLogSewa');
 
 Route::get('/logout', 'AuthController@logout');
-});
 
 //admin
 Route::get('/user/search', 'AuthController@user_search');
@@ -84,8 +83,9 @@ Route::get('/admin/logout', 'AuthController@adminlogout');
 
 //manager
 Route::get('/DashboardManager', 'ManagerController@DashboardManager');
-Route::get('/manager/logout', 'AuthController@adminlogout');
+Route::get('/manager/logout', 'AuthController@managerlogout');
 
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

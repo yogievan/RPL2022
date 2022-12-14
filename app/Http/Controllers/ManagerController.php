@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class ManagerController extends Controller
 {
-    public function managersignin()
+    public function DashboardManager()
     {
-        return view('ManagerSign-in');
+        return view('manager.DashboardManager');
     }
 }

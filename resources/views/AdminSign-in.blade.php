@@ -2,14 +2,21 @@
 <html lang="en">
 
 {{-- title --}}
-@section('title', 'Admin Sign-In')
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/bus-solid-light.png">
+<link rel="icon" type="image/png" href="../assets/img/bus-solid-light.png">
+<title> 
+  @yield('title','.:Admin Sign-In!:.')
+</title>
+{{-- title --}}
 
 {{-- <Head> --}}
 @include('head.head')
 {{-- </Head> --}}
 
 <body>
-  <form>
     <main class="main-content  mt-0">
       <section>
         <div class="page-header min-vh-100">
@@ -51,7 +58,6 @@
         </div>
       </section>
     </main>
-  </form>
 
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
