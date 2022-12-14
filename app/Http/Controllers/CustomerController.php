@@ -9,6 +9,7 @@ use App\Shuttle;
 use App\Bus;
 use App\Instansi;
 use App\Pribadi;
+use Auth;
  
 class CustomerController extends Controller
 {
@@ -49,6 +50,7 @@ class CustomerController extends Controller
         Pribadi::create([
             'id_bus' => $request -> id_bus,
             'nama_user' => $request -> nama_user,
+            'email' => $request -> email,
             'shuttle_asal' => $request -> shuttle_asal,
             'shuttle_tujuan' => $request -> shuttle_tujuan,
             'jam_mulai' => $request -> jam_mulai,
@@ -77,6 +79,7 @@ class CustomerController extends Controller
         Instansi::create([
             'id_bus' => $request -> id_bus,
             'nama_user' => $request -> nama_user,
+            'email' => $request -> email,
             'kota_berangkat' => $request -> kota_berangkat,
             'kota_tujuan' => $request -> kota_tujuan,
             'tgl_keberangkatan' => $request -> tgl_keberangkatan,
@@ -90,8 +93,8 @@ class CustomerController extends Controller
 
     public function bookingLog()
     {
-        $pribadi = Pribadi::orderBy('id', 'DESC')->paginate(10);
-        $instansi = Instansi::orderBy('id', 'DESC')->paginate(10);
+        $pribadi = Pribadi::orderBy('id', 'DESC')->where('email', Auth::user() -> email)->paginate(10);
+        $instansi = Instansi::orderBy('id', 'DESC')->where('email', Auth::user() -> email)->paginate(10);
         return view('customer.BookingLog', ['pribadi' => $pribadi,'instansi' => $instansi]);
     }
 

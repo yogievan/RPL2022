@@ -26,6 +26,7 @@
               <th scope="col">Shuttle Asal</th>
               <th scope="col">Shuttle Tujuan</th>
               <th scope="col">Total Bayar</th>
+              <th scope="col">Validasi</th>
               <th scope="col">ACTION</th>
           </tr>
           </thead>
@@ -38,12 +39,10 @@
                   <td>{{$tp -> shuttle_asal}}</td>
                   <td>{{$tp -> shuttle_tujuan}}</td>
                   <td>{{$tp -> total_bayar}}</td>
+                  <td><b>{{$tp -> validasi}}</b></td>
                   <td>
                       <a href="/viewDataTransaksi/pribadi/{{ $tp -> id }}" class="btn btn-outline-primary">
                           View
-                      </a>
-                      <a href="/validasiTransaksiPribadi/{{ $tp -> id }}" class="btn btn-danger" onclick="return confirm('Anda Yakin Validasi Data Transaksi?')">
-                          Validasi
                       </a>
                   </td>
               </tr>
@@ -70,6 +69,7 @@
               <th scope="col">Tanggal Berangkat</th>
               <th scope="col">Tanggal Kembali</th>
               <th scope="col">Total Bayar</th>
+              <th scope="col">Validasi</th>
               <th scope="col">ACTION</th>
           </tr>
           </thead>
@@ -84,12 +84,10 @@
                   <td>{{$ti -> tgl_keberangkatan}}</td>
                   <td>{{$ti -> tgl_pengembalian}}</td>
                   <td>{{$ti -> total_bayar}}</td>
+                  <td><b>{{$ti -> validasi}}</b></td>
                   <td>
-                      <a href="/viewDataTransaksi/instansi/{{ $ti -> id }}" class="btn btn-outline-primary">
-                          View
-                      </a>
-                      <a href="/validasiTransaksiInstansi/{{ $ti -> id }}" class="btn btn-danger" onclick="return confirm('Anda Yakin Validasi Data Transaksi?')">
-                        Validasi
+                    <a href="/viewDataTransaksi/instansi/{{ $ti -> id }}" class="btn btn-outline-primary">
+                      View
                     </a>
                   </td>
               </tr>

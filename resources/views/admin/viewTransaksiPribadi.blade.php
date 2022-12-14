@@ -1,4 +1,4 @@
-@extends('layouts/mainAdmin')
+@extends('layouts/mainAdmin2')
 @section('title', '.:Detail Transaksi Tiket:.')
 @section('header')
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
@@ -14,7 +14,7 @@
 @endsection
 @section('konten')
 <div class="container-fluid py-4">
-  <form>
+  <form action="/validasiTransaksiPribadi/{{ $pribadi -> id }}" method="POST">
     @csrf
     @method('PUT')
     <div>
@@ -26,6 +26,11 @@
       <div class="input-group flex-nowrap mt-3">
         <span class="input-group-text" id="addon-wrapping"><b>Nama Pemesan Tiket:</b></span>
         <input class="form-control" name="nama_user" value="{{ $pribadi -> nama_user}}" readonly>
+      </div>
+
+      <div class="input-group flex-nowrap mt-3">
+        <span class="input-group-text" id="addon-wrapping"><b>Email:</b></span>
+        <input class="form-control" name="email" value="{{ $pribadi -> email}}" readonly>
       </div>
 
       <div class="input-group flex-nowrap mt-3">
@@ -55,7 +60,11 @@
 
       <div class="input-group flex-nowrap mt-3">
         <span class="input-group-text" id="addon-wrapping"><b>Bukti Bayar:</b></span>
-        <input class="form-control" name="total_bayar" value="{{ $pribadi -> bukti_bayar}}" readonly>
+        <input class="form-control" name="bukti_bayar" value="{{ $pribadi -> bukti_bayar}}" readonly>
+      </div>
+
+      <div>
+        <input class="form-control" name="validasi" value="LUNAS" hidden>
       </div>
       
       <div class="row mt-3">
@@ -63,11 +72,12 @@
           <img class="rounded" src="{{url('/assets/img/bukti_bayar/'.$pribadi -> bukti_bayar)}}" alt="logo bus" width="520" height="320">
         </div>
       </div>
-        <div class="mt-3">
-            <a href="/TabelTransaksi">
-                <button type="button" class="btn btn-danger">BACK</button>
-            </a>
-        </div>
+      <div class="mt-3">
+        <button type="submit" class="btn btn-warning" onclick="return confirm('Anda Yakin Validasi Data Transaksi?')">Validasi</button>
+        <a href="/TabelTransaksi">
+          <button type="button" class="btn btn-danger">BACK</button>
+        </a>
+      </div>
     </div>
   </form>
 </div>

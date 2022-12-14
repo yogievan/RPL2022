@@ -1,4 +1,4 @@
-@extends('layouts/mainCustomer')
+@extends('layouts/mainCustomer2')
 @section('title', '.:Form Sewa Bus:.')
 @section('konten')
 <div class="container-fluid py-4">
@@ -39,6 +39,10 @@
                             <div class="col">
                                 <label class="text-dark">Nama Pemesan</label>
                                 <input type="text" class="form-control" name="nama_user"  required>
+                            </div>
+                            <div class="col">
+                                <label class="text-dark">Email</label>
+                                <input type="text" class="form-control" name="email" value="{{Auth::user()->email ?? ''}}"  required>
                             </div>
                         </div>
                         <div class="row mt-3">

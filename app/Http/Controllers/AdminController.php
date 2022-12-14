@@ -25,17 +25,28 @@ class AdminController extends Controller
     public function view_tansaksi_pribadi($id)
     {
         $pribadi = Pribadi::find($id);
-        return view('admin.viewTransaksiPribadi', ['pribadi' => $pribadi]);
+        return view('admin.viewTransaksiPribadi', ['cek' => 'validasiTransaksi'], ['pribadi' => $pribadi]);
     }
 
     public function view_tansaksi_instansi($id)
     {
         $instansi = Instansi::find($id);
-        return view('admin.viewTransaksiInstansi', ['instansi' => $instansi]);
+        return view('admin.viewTransaksiInstansi', ['cek' => 'validasiTransaksi'], ['instansi' => $instansi]);
     }
 
-    public function validasiPribadi($id)
+    public function validasiPribadi($id, Request $request)
     {
         $pribadi = Pribadi::find($id);
+        $pribadi -> validasi = $request->validasi;
+        $pribadi -> save();
+        return redirect('/TabelTransaksi');
+    }
+    public function validasiInstansi($id, Request $request)
+    {
+        $instansi = Instansi::find($id);
+        $instansi -> validasi = $request->validasi;
+        $instansi -> save();
+
+        return redirect('/TabelTransaksi');
     }
 }
