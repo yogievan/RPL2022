@@ -4,25 +4,6 @@
 <div class="container-fluid py-4">
     <div class="container-fluid mb-3 m-2">
         <div class="row">
-            <nav class="navbar navbar-expand-lg rounded">
-              <div class="col">
-                <a class="navbar-brand text-white mb-0 h1 text-lg" href="/DashboardCustomer">
-                  <img src="../assets/img/bus-solid-light.png" width="40" height="32" class="navbar-brand-img h-100" alt="main_logo">
-                  &nbsp BookingBus.com
-                </a>
-              </div>
-              <div class="col-2">
-                <a href="/BookingLog" class="text-white mb-0 h1 text-lg">Booking Log</i></a>
-              </div>
-              <div class="col-2">
-                <a href="/profileUser"><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>
-              </div>
-              <div class="col-1">
-                <a href="/logout" class="btn btn-danger m-1">Logout</a>
-              </div>
-            </nav>
-          </div>
-        <div class="row">
             <div class="col-1">
                 <a href="/BookingLog" class="btn btn-primary">BACK</a>
             </div>

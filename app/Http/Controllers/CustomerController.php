@@ -17,10 +17,6 @@ class CustomerController extends Controller
     {
         return view('customer.DashboardCustomer');
     }
-    public function setting_profile()
-    {
-        return view('customer.settingProfile');
-    }
 
     public function formShuttle(Request $request)
     {

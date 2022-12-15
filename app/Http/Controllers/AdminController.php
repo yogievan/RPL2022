@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\HelloMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Pribadi;
 use App\Instansi;
@@ -39,6 +42,11 @@ class AdminController extends Controller
         $pribadi = Pribadi::find($id);
         $pribadi -> validasi = $request->validasi;
         $pribadi -> save();
+
+        // $data = ['email' => $request -> email];
+        // Mail::to('yogievan32@gmail.com')
+        //     ->send(new HelloMail());
+
         return redirect('/TabelTransaksi');
     }
     public function validasiInstansi($id, Request $request)

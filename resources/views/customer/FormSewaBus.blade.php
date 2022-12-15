@@ -11,7 +11,7 @@
             </a>
           </div>
           <div class="col-2">
-            <a href="/BookingLog" class="text-white mb-0 h1 text-lg">Booking Log</i></a>
+            <a href="/BookingLog" class="text-white mb-0 h1 text-lg">Riwayat Pemesanan</i></a>
           </div>
           <div class="col-2">
             <a href="/profileUser"><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>

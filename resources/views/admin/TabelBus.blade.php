@@ -7,7 +7,7 @@
       <h4 class="font-weight-bolder text-white mb-0">Tabel Bus</h4>
     </div>
     <div class="ms-md-auto pe-md-3 d-flex align-items-center"> 
-      <a href="sign-in"><button class="btn btn-danger">LOGOUT</button></a>
+      <a href="admin/logout"><button class="btn btn-danger">LOGOUT</button></a>
     </div>
   </div>
 </nav>
@@ -18,14 +18,6 @@
           <div class="row">
             <div class="col">
               <a href="/addDataBus" class="btn btn-outline-white">Tambah Data Bus</a>
-            </div>
-            <div class="col">
-              <form class="form-inline my-2 my-lg-0 float-right" method="GET" action="/bus/search">
-                  <div class="input-group">
-                      <input class="form-control mr-sm-2" name="cari" type="search" placeholder="Search by plat nomor">
-                      <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
-                  </div>
-              </form>
             </div>
           </div>
         </form>

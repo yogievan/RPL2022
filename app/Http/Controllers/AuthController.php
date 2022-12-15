@@ -55,23 +55,24 @@ class AuthController extends Controller
         return view('admin.TabelUser', ['cek' => 'tabelUser'],['user' => $user]);
     }
 
-    public function profile_user($id)
-    {
-        $user = User::find($id);
-        return view('customer.settingProfile', ['user' => $user]);
-    }
+    // public function profile_user($id)
+    // {
+    //     $user = User::find($id);
+    //     return view('customer.settingProfile', ['user' => $user]);
+    // }
 
-    public function profile_update(Request $request)
-    {
-        $user = User::find($id);
-        $user -> username = $request->username;
-        $user -> tgl_lahir = $request->tgl_lahir;
-        $user -> email = $request->email;
-        $user -> no_telp = $request->no_telp;
-        $user -> alamat = $request->alamat;
-        $user -> save();
-        return redirect('customer.DashboardCustomer');
-    }
+    // public function profile_update(Request $request)
+    // {
+    //     $user = User::find($id);
+    //     $user -> username = $request->username;
+    //     $user -> tgl_lahir = $request->tgl_lahir;
+    //     $user -> email = $request->email;
+    //     $user -> no_telp = $request->no_telp;
+    //     $user -> alamat = $request->alamat;
+    //     $user -> save();
+    //     return redirect('customer.DashboardCustomer');
+    // }
+    
     public function DashboardGuest()
     {
         return view('DashboardGuest');

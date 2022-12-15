@@ -11,12 +11,25 @@
     <main class="main-content position-relative border-radius-lg ">
         {{-- Content --}}
         <div class="container-fluid py-4">
-          <header class="pb-3 mb-4 border-bottom">
-            <a href="/DasboardCustomer" class="d-flex align-items-center text-dark text-decoration-none">
-              <img src="../assets/img/bus-solid-light.png" width="40" height="32" class="navbar-brand-img h-100" alt="main_logo">
-              <span class="fs-4 text-white">&nbsp BookingBus.com</span>
-            </a>
-          </header>
+          <div class="row">
+            <nav class="navbar navbar-expand-lg rounded">
+              <div class="col">
+                <a class="navbar-brand text-white mb-0 h1 text-lg" href="/DashboardCustomer">
+                  <img src="../assets/img/bus-solid-light.png" width="40" height="32" class="navbar-brand-img h-100" alt="main_logo">
+                  &nbsp BookingBus.com
+                </a>
+              </div>
+              <div class="col-2">
+                <a href="/BookingLog" class="text-white mb-0 h1 text-lg">Riwayat Pemesanan</i></a>
+              </div>
+              <div class="col-2">
+                <a href="/profileUser/{{$user -> id}}"><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>
+              </div>
+              <div class="col-1">
+                <a href="/logout" class="btn btn-danger m-1">Logout</a>
+              </div>
+            </nav>
+          </div>
           
           <div class="card">
             <h3 class="text-center m-3">Setting Profile</h3>

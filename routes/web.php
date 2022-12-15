@@ -20,9 +20,8 @@ Route::get('/formSewaBus/book', 'CustomerGuestController@formSewa_book');
 Route::group(['middleware' => ['auth']], function () {
 //user
 Route::get('/DashboardCustomer', 'CustomerController@DashboardCustomer');
-Route::get('/profileUser/{id}', 'AuthController@profile_user');
-Route::post('/update/user/{id}', 'AuthController@profile_update');
-Route::get('/settingprofile', 'CustomerController@setting_profile');
+// Route::get('/profileUser', 'AuthController@profile_user');
+// Route::post('/update/user/{id}', 'AuthController@profile_update');
 
 Route::get('/formTiketShuttle/customer', 'CustomerController@formShuttle');
 Route::get('/searchTiket/customer', 'CustomerController@searchTiket');

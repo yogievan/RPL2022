@@ -7,7 +7,7 @@
       <h4 class="font-weight-bolder text-white mb-0">Data User</h4>
     </div>
     <div class="ms-md-auto pe-md-3 d-flex align-items-center"> 
-      <a href="sign-in"><button class="btn btn-danger">LOGOUT</button></a>
+      <a href="/admin/logout"><button class="btn btn-danger">LOGOUT</button></a>
     </div>
   </div>
 </nav>
@@ -20,7 +20,7 @@
     <div>
       <div class="input-group flex-nowrap mt-3">
         <span class="input-group-text" id="addon-wrapping"><b>Nama Pengguna:</b></span>
-        <input class="form-control" placeholder="ID" name="username" value="{{ $user -> username}}" readonly>
+        <input class="form-control" placeholder="Nama User" name="nama_user" value="{{ $user -> nama_user}}" readonly>
       </div>
 
       <div class="input-group flex-nowrap mt-3">

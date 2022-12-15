@@ -4,7 +4,7 @@
       <h4 class="font-weight-bolder text-white mb-0">Selamat Datang! {{Auth::user() -> nama_user ?? ''}} TERCINTA</h4>
     </div>
     <div class="ms-md-auto pe-md-3 d-flex align-items-center"> 
-      <a href="sign-in"><button class="btn btn-danger">LOGOUT</button></a>
+      <a href="admin/logout"><button class="btn btn-danger">LOGOUT</button></a>
     </div>
   </div>
 </nav>
