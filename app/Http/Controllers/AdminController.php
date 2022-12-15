@@ -43,10 +43,6 @@ class AdminController extends Controller
         $pribadi -> validasi = $request->validasi;
         $pribadi -> save();
 
-        // $data = ['email' => $request -> email];
-        // Mail::to('yogievan32@gmail.com')
-        //     ->send(new HelloMail());
-
         return redirect('/TabelTransaksi');
     }
     public function validasiInstansi($id, Request $request)
