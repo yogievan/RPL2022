@@ -36,6 +36,7 @@ class AdminJadwalController extends Controller
             'jam_mulai' => $request -> jam_mulai,
             'tgl_jadwal' => $request -> tgl_jadwal,
             'jumlah_kursi' => $request -> jumlah_kursi,
+            'jumlah_tiket' => $request -> jumlah_tiket,
             'harga' => $request -> harga,
         ]);
         return redirect('/TabelJadwal');
@@ -57,6 +58,7 @@ class AdminJadwalController extends Controller
         $jadwal -> jam_mulai = $request -> jam_mulai;
         $jadwal -> tgl_jadwal = $request -> tgl_jadwal;
         $jadwal -> jumlah_kursi = $request -> jumlah_kursi;
+        $jadwal -> jumlah_tiket = $request -> jumlah_tiket;
         $jadwal -> harga = $request -> harga;
         $jadwal -> save();
         return redirect('/TabelJadwal');

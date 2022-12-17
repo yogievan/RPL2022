@@ -62,14 +62,14 @@
                               <h4 class="text-dark" name="jam_mulai">{{$jadwal->jam_mulai}}</h4>
                               <input type="text" class="form-control" name="jam_mulai" value="{{$jadwal -> jam_mulai}}" hidden>
                           </div>
-                      </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <label class="text-dark">Total Bayar</label>
-                                <h3 class="text-dark text-bold" name="total_bayar">Rp. {{$jadwal -> harga}}</h3>
-                                <input type="text" class="form-control" name="total_bayar" value="{{$jadwal -> harga}}" hidden>
-                            </div>
+                          <div class="col">
+                            <label class="text-dark">Jumlah Tiket</label>
+                            <input type="text" class="form-control" name="jumlah_tiket">
                         </div>
+                        <div class="col">
+                            <p></p>
+                        </div>
+                      </div>
                     </div>
                 </div>
                 <div class="row mt-5">
@@ -77,6 +77,13 @@
                 </div>
                 <div class="card mt-2">
                     <div class="card-body m-2">
+                        <div class="row">
+                            <div class="col">
+                                <label class="text-dark">Total Bayar</label>
+                                <h3 class="text-dark text-bold" name="total_bayar">Rp. {{$jadwal -> harga}}</h3>
+                                <input type="text" class="form-control" name="total_bayar" value="{{$jadwal -> harga}}" hidden>
+                            </div>
+                        </div>
                         <div class="row mt-2">
                             <p class="text-danger">*Perlu dilakukan pembayaran untuk meyelesaikan pesanan ini.</p>
                         </div>

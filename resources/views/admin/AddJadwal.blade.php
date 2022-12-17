@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col mt-3">
           <label class="text-white text-lg">ID Bus</label>
-          <select class="form-control" name="id_bus">
+          <select class="form-control" name="id_bus" required>
             @foreach ($bus as $no => $b)
               <option value="{{$b->id}}">{{$b->id}}</option>
             @endforeach
@@ -30,7 +30,7 @@
       <div class="row mt-3">
         <div class="col mt-3">
           <label class="text-white text-lg">Shuttle Mulai</label>
-          <select id="inputBerangkat" class="form-control" name="shuttle_mulai">
+          <select id="inputBerangkat" class="form-control" name="shuttle_mulai" required>
             <option selected value=""></option>
             @foreach ($shuttle as $no => $sh)
               <option value="{{$sh -> nama_shuttle}}">{{$sh -> nama_shuttle}}</option>
@@ -40,7 +40,7 @@
 
         <div class="col mt-3">
           <label class="text-white text-lg">Shuttle Tujuan</label>
-          <select id="inputBerangkat" class="form-control" name="shuttle_tujuan">
+          <select id="inputBerangkat" class="form-control" name="shuttle_tujuan" required>
             <option selected value=""></option>
             @foreach ($shuttle as $no => $sh)
               <option value="{{$sh -> nama_shuttle}}">{{$sh -> nama_shuttle}}</option>
@@ -52,7 +52,7 @@
       <div class="row mt-3">
         <div class="col mt-3">
           <label class="text-white text-lg">Jam Mulai</label>
-          <select class="form-control" name="jam_mulai">
+          <select class="form-control" name="jam_mulai" required>
             <option selected value="06:00">06:00</option>
             <option value="06:30">06:30</option>
             <option value="07:00">07:00</option>
@@ -92,17 +92,24 @@
         <div class="col mt-3">
           <div class="form-group">
             <label class="text-white text-lg">Pilih Tanggal Berangkat</label>
-            <input type="date" class="form-control" name="tgl_jadwal">
+            <input type="date" class="form-control" name="tgl_jadwal" required>
           </div>
         </div>
 
         <div class="col mt-3">
           <div class="form-group">
             <label class="text-white text-lg">Kapasitas Kursi</label>
-            <select class="form-control" name="jumlah_kursi">
+            <select class="form-control" name="jumlah_kursi" required>
               <option selected value="30">30</option>
               <option value="60">60</option>
             </select>
+          </div>
+        </div>
+
+        <div class="col mt-3">
+          <div class="form-group">
+            <label class="text-white text-lg">Jumlah Tiket</label>
+            <input type="number" class="form-control" name="jumlah_tiket" required>
           </div>
         </div>
 

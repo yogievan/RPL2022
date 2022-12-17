@@ -30,7 +30,7 @@
               <th scope="col">Tujuan</th>
               <th scope="col">Tanggal</th>
               <th scope="col">Jam Mulai</th>
-              <th scope="col">Kapasitas</th>
+              <th scope="col">Kapasitas / Tiket</th>
               <th scope="col">Harga Tiket</th>
               <th scope="col">ACTION</th>
           </tr>
@@ -43,7 +43,7 @@
                   <td>{{$j -> shuttle_tujuan}}</td>
                   <td>{{$j -> tgl_jadwal}}</td>
                   <td>{{$j -> jam_mulai}}</td>
-                  <td>{{$j -> jumlah_kursi}}</td>
+                  <td>{{$j -> jumlah_kursi}} / {{$j -> jumlah_tiket}}</td>
                   <td>{{$j -> harga}}</td>
                   <td>
                       <a href="/updateDataJadwal/{{ $j -> id }}" class="btn btn-outline-success">

@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col mt-3">
           <label class="text-white text-lg">ID Bus</label>
-          <input type="text" name="id_bus" class="form-control" value="{{$jadwal -> id_bus}}" readonly>
+          <input type="text" name="id_bus" class="form-control" value="{{$jadwal -> id_bus}}">
         </div>
       </div>
       <div class="row mt-3">
@@ -38,8 +38,8 @@
           <label class="text-white text-lg">Shuttle Tujuan</label>
           <select id="inputBerangkat" class="form-control" name="shuttle_tujuan">
             @foreach ($shuttle as $no => $sh)
-            <option value="{{$sh -> nama_shuttle}}" {{$jadwal -> shuttle_tujuan == $sh -> nama_shuttle ? 'selected':''}}>{{$sh -> nama_shuttle}}</option>
-          @endforeach
+              <option value="{{$sh -> nama_shuttle}}" {{$jadwal -> shuttle_tujuan == $sh -> nama_shuttle ? 'selected':''}}>{{$sh -> nama_shuttle}}</option>
+            @endforeach
           </select>
         </div>
       </div>
@@ -68,8 +68,8 @@
             <option value="14:30" {{$jadwal -> jam_mulai == '14:30' ? 'selected':''}}>14:30</option>
             <option value="15:00" {{$jadwal -> jam_mulai == '15:00' ? 'selected':''}}>15:00</option>
             <option value="15:30" {{$jadwal -> jam_mulai == '15:30' ? 'selected':''}}>15:30</option>
-            <option value="16:00" {{$jadwal -> jam_mulai == '16:30' ? 'selected':''}}>16:00</option>
-            <option value="16:30" {{$jadwal -> jam_mulai == '06:00' ? 'selected':''}}>16:30</option>
+            <option value="16:00" {{$jadwal -> jam_mulai == '16:00' ? 'selected':''}}>16:00</option>
+            <option value="16:30" {{$jadwal -> jam_mulai == '16:30' ? 'selected':''}}>16:30</option>
             <option value="17:00" {{$jadwal -> jam_mulai == '17:00' ? 'selected':''}}>17:00</option>
             <option value="17:30" {{$jadwal -> jam_mulai == '17:30' ? 'selected':''}}>17:30</option>
             <option value="18:00" {{$jadwal -> jam_mulai == '18:00' ? 'selected':''}}>18:00</option>
@@ -100,6 +100,14 @@
             </select>
           </div>
         </div>
+
+        <div class="col mt-3">
+          <div class="form-group">
+            <label class="text-white text-lg">Jumlah Tiket</label>
+            <input type="number" class="form-control" name="jumlah_tiket" value="{{$jadwal -> jumlah_tiket}}">
+          </div>
+        </div>
+
         <div class="col mt-3">
           <div class="form-group">
             <label class="text-white text-lg">Harga Tiket</label>

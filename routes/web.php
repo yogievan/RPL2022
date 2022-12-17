@@ -1,27 +1,39 @@
 <?php
+//login
 Route::get('/', 'AuthController@signin')->name('login');
 Route::post('/user/ceklogin', 'AuthController@ceklogin');
 
-Route::get('/admin/Login', 'AuthController@adminsignin')->name('loginAdmin');
-Route::post('/admin/ceklogin', 'AuthController@adminceklogin');
+Route::get('/admin/Login', 'AdminController@adminsignin')->name('login');
+Route::post('/admin/ceklogin', 'AdminController@adminceklogin');
 
-Route::get('/manager/Login', 'AuthController@managersignin')->name('loginManager');
-Route::post('/manager/ceklogin', 'AuthController@managerceklogin');
+Route::get('/manager/Login', 'ManagerController@managersignin')->name('login');
+Route::post('/manager/ceklogin', 'ManagerController@managerceklogin');
 
+//sign-up
 Route::get('/sign-up', 'AuthController@signup');
+Route::post('/create/user', 'AuthController@addDataUser');
+
+Route::get('/admin/sign-up', 'AdminController@AdminSignup');
+Route::post('/create/admin', 'AdminController@addDataAdmin');
+
+Route::get('/manager/sign-up', 'ManagerController@ManajerSignup');
+Route::post('/create/manager', 'ManagerController@addDataManajer');
+
+//dashboard
 Route::get('/DashboardGuest', 'AuthController@DashboardGuest');
 Route::get('/TabelUser', 'AdminUserController@TabelUser');
-Route::post('/create/user', 'AuthController@addDataUser');
 Route::get('/formTiketShuttle', 'CustomerGuestController@formShuttle');
 Route::get('/searchTiket', 'CustomerGuestController@searchTiket');  
 Route::get('/formSewaBus', 'CustomerGuestController@formSewa');
 Route::get('/formSewaBus/book', 'CustomerGuestController@formSewa_book');
 
 Route::group(['middleware' => ['auth']], function () {
+
+
+});
+
 //user
 Route::get('/DashboardCustomer', 'CustomerController@DashboardCustomer');
-// Route::get('/profileUser', 'AuthController@profile_user');
-// Route::post('/update/user/{id}', 'AuthController@profile_update');
 
 Route::get('/formTiketShuttle/customer', 'CustomerController@formShuttle');
 Route::get('/searchTiket/customer', 'CustomerController@searchTiket');
@@ -43,12 +55,12 @@ Route::get('/user/search', 'AuthController@user_search');
 Route::get('/viewDataUser/{id}', 'AdminUserController@user_view');
 
 Route::get('/DashboardAdmin', 'AdminController@DashboardAdmin');
-Route::get('/TabelTransaksi', 'AdminController@TableTransaksi');
-Route::put('/validasiTransaksiPribadi/{id}', 'AdminController@validasiPribadi');
-Route::put('/validasiTransaksiInstansi/{id}', 'AdminController@validasiInstansi');
+Route::get('/TabelTransaksi', 'TransaksiController@TableTransaksi');
+Route::put('/validasiTransaksiPribadi/{id}', 'TransaksiController@validasiPribadi');
+Route::put('/validasiTransaksiInstansi/{id}', 'TransaksiController@validasiInstansi');
 
-Route::get('/viewDataTransaksi/pribadi/{id}','AdminController@view_tansaksi_pribadi');
-Route::get('/viewDataTransaksi/instansi/{id}','AdminController@view_tansaksi_instansi');
+Route::get('/viewDataTransaksi/pribadi/{id}','TransaksiController@view_tansaksi_pribadi');
+Route::get('/viewDataTransaksi/instansi/{id}','TransaksiController@view_tansaksi_instansi');
 
 Route::get('/TabelBus', 'AdminBusController@TableBus');
 Route::get('/addDataBus', 'AdminBusController@addDataBus');
@@ -82,12 +94,11 @@ Route::get('/admin/logout', 'AuthController@adminlogout');
 
 //manager
 Route::get('/DashboardManager', 'ManagerController@DashboardManager');
-Route::get('/manager/logout', 'AuthController@managerlogout');
+Route::get('/manager/logout', 'ManagerController@managerlogout');
 
-});
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+
+// Route::get('/DashboardAdmin', 'AdminController@DashboardAdmin');

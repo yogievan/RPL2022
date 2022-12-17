@@ -20,7 +20,8 @@ class CreateJadwalTable extends Migration
             $table->string('shuttle_tujuan');
             $table->string('jam_mulai');
             $table->date('tgl_jadwal');
-            $table->string('jumlah_kursi');
+            $table->integer('jumlah_kursi');
+            $table->integer('jumlah_tiket');
             $table->integer('harga')->nulable();
             $table->timestamps();
         });

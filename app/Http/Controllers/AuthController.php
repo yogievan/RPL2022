@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Admin;
+use App\Manajer;
 use Illuminate\support\Facades\Auth;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class AuthController extends Controller
 {
@@ -21,7 +24,7 @@ class AuthController extends Controller
             'email' => ['required'],
             'password' => ['required']
         ]);
-        Auth::login($user);
+        Auth::login($user,true);
         return redirect('/DashboardCustomer');
     }
 
@@ -35,6 +38,7 @@ class AuthController extends Controller
     {
         return view('sign-up');
     }
+
     public function addDataUser(Request $request)
     {
         $user = User::create([
@@ -48,6 +52,7 @@ class AuthController extends Controller
         ]);
         return redirect('/');
     }
+
     public function user_search(Request $request)
     {
         $cari = $request-> cari;
@@ -55,67 +60,8 @@ class AuthController extends Controller
         return view('admin.TabelUser', ['cek' => 'tabelUser'],['user' => $user]);
     }
 
-    // public function profile_user($id)
-    // {
-    //     $user = User::find($id);
-    //     return view('customer.settingProfile', ['user' => $user]);
-    // }
-
-    // public function profile_update(Request $request)
-    // {
-    //     $user = User::find($id);
-    //     $user -> username = $request->username;
-    //     $user -> tgl_lahir = $request->tgl_lahir;
-    //     $user -> email = $request->email;
-    //     $user -> no_telp = $request->no_telp;
-    //     $user -> alamat = $request->alamat;
-    //     $user -> save();
-    //     return redirect('customer.DashboardCustomer');
-    // }
-    
     public function DashboardGuest()
     {
         return view('DashboardGuest');
-    }
-
-    public function adminsignin()
-    {
-        return view('AdminSign-in');
-    }
-    public function adminceklogin(Request $request)
-    {
-        $user = User::where('username', $request->username)->where('password', md5($request->password))->first();
-        $validatedData = $request->validate([
-            'username' => ['required'],
-            'password' => ['required']
-        ]);
-        Auth::login($user);
-        return redirect('/DashboardAdmin');
-    }
-    
-    public function adminlogout()
-    {
-        Auth::logout();
-        return redirect('/admin/Login');
-    }
-
-    public function managersignin()
-    {
-        return view('ManagerSign-in');
-    }
-    public function managerceklogin(Request $request)
-    {
-        $user = User::where('username', $request->username)->where('password', md5($request->password))->first();
-        $validatedData = $request->validate([
-            'username' => ['required'],
-            'password' => ['required']
-        ]);
-        Auth::login($user);
-        return redirect('/DashboardManager');
-    }
-    public function managerlogout()
-    {
-        Auth::logout();
-        return redirect('/manager/Login');
     }
 }

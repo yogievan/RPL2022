@@ -22,6 +22,7 @@ class CreateTransaksiPribadiTable extends Migration
             $table->string('shuttle_tujuan');
             $table->string('jam_mulai');
             $table->date('tgl_jadwal');
+            $table->integer('jumlah_tiket');
             $table->integer('total_bayar');
             $table->string('bukti_bayar');
             $table->string('validasi')->nullable();

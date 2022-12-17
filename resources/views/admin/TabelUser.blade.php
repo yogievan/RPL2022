@@ -14,7 +14,9 @@
 @endsection
 @section('konten')
 <div class="container-fluid py-4">
-  <div class="card-body bg-white rounded mt-3">
+  <div class="row">
+    <h4 class="text-white">Tabel User Customer</h4>
+    <div class="card-body bg-white rounded mt-3">
       <table class="table table-striped">
           <thead>
           <tr class="text-center">
@@ -42,6 +44,67 @@
           </tbody>
       </table>
       <span class="container-fluid">{{$user -> links()}}</span>
-  </div>  
+    </div>  
+  </div>
+  
+  <div class="row mt-5">
+    <h4 class="text-white">Tabel User Admin</h4>
+    <form>
+      <div class="row">
+        <div class="col">
+          <a href="/admin/sign-up" class="btn btn-outline-white">Tambah Data Admin</a>
+        </div>
+      </div>
+    </form>
+    <div class="card-body bg-white rounded mt-3">
+      <table class="table table-striped">
+          <thead>
+          <tr class="text-center">
+              <th scope="col">#ID</th>
+              <th scope="col">Username Admin</th>
+          </tr>
+          </thead>
+          <tbody>
+          @foreach ($admin as $no => $a)
+              <tr class="text-center">
+                <td>{{$a -> id}}</td>
+                <td>{{$a -> username}}</td>
+              </tr>
+          @endforeach
+          </tbody>
+      </table>
+      <span class="container-fluid">{{$admin -> links()}}</span>
+    </div>  
+  </div>
+
+  <div class="row mt-5">
+    <h4 class="text-white">Tabel User Manajer</h4>
+    <form>
+      <div class="row">
+        <div class="col">
+          <a href="/manager/sign-up" class="btn btn-outline-white">Tambah Data Manajer</a>
+        </div>
+      </div>
+    </form>
+    <div class="card-body bg-white rounded mt-3">
+      <table class="table table-striped">
+          <thead>
+          <tr class="text-center">
+              <th scope="col">#ID</th>
+              <th scope="col">Username Manajer</th>
+          </tr>
+          </thead>
+          <tbody>
+          @foreach ($manajer as $no => $m)
+              <tr class="text-center">
+                <td>{{$m -> id}}</td>
+                <td>{{$m -> username}}</td>
+              </tr>
+          @endforeach
+          </tbody>
+      </table>
+      <span class="container-fluid">{{$manajer -> links()}}</span>
+    </div>  
+  </div>
 </div>
 @endsection

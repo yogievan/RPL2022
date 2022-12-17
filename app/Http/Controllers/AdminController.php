@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Mail\HelloMail;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Route;
+use Illuminate\support\Facades\Auth;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
-use App\Pribadi;
-use App\Instansi;
+use App\Admin;
 
 class AdminController extends Controller
 {
@@ -17,40 +15,38 @@ class AdminController extends Controller
         return view('admin.DashboardAdmin', ['cek' => 'dashboard']);
     }
 
-    //transaksi
-    public function TableTransaksi()
+    public function adminsignin()
     {
-        $pribadi = Pribadi::orderBy('id', 'DESC')->paginate(10);
-        $instansi = Instansi::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.TabelTransaksi', ['cek' => 'validasiTransaksi'], ['pribadi' => $pribadi,'instansi' => $instansi]);
+        return view('AdminSign-in');
+    }
+    public function adminceklogin(Request $request)
+    {
+        $user = Admin::where('username', $request->username)->where('password', md5($request->password))->first();
+        $validatedData = $request->validate([
+            'username' => ['required'],
+            'password' => ['required']
+        ]);
+        Auth::login($user, true);
+        return redirect('/DashboardAdmin');
+    }
+    
+    public function adminlogout()
+    {
+        Auth::logout();
+        return redirect('/admin/Login');
     }
 
-    public function view_tansaksi_pribadi($id)
+    public function AdminSignup()
     {
-        $pribadi = Pribadi::find($id);
-        return view('admin.viewTransaksiPribadi', ['cek' => 'validasiTransaksi'], ['pribadi' => $pribadi]);
+        return view('AdminSign-up');
     }
 
-    public function view_tansaksi_instansi($id)
+    public function addDataAdmin(Request $request)
     {
-        $instansi = Instansi::find($id);
-        return view('admin.viewTransaksiInstansi', ['cek' => 'validasiTransaksi'], ['instansi' => $instansi]);
-    }
-
-    public function validasiPribadi($id, Request $request)
-    {
-        $pribadi = Pribadi::find($id);
-        $pribadi -> validasi = $request->validasi;
-        $pribadi -> save();
-
-        return redirect('/TabelTransaksi');
-    }
-    public function validasiInstansi($id, Request $request)
-    {
-        $instansi = Instansi::find($id);
-        $instansi -> validasi = $request->validasi;
-        $instansi -> save();
-
-        return redirect('/TabelTransaksi');
+        $admin = Admin::create([
+            'username' => $request -> username,
+            'password' => md5($request->password)
+        ]);
+        return redirect('/admin/Login');
     }
 }

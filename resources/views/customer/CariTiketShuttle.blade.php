@@ -14,17 +14,18 @@
             <a href="/BookingLog" class="text-white mb-0 h1 text-lg">Riwayat Pemesanan</i></a>
           </div>
           <div class="col-2">
-            <a href="/profileUser"><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>
+            <a><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>
           </div>
           <div class="col-1">
             <a href="/logout" class="btn btn-danger m-1">Logout</a>
           </div>
         </nav>
       </div>
-    <div>
+    <div class="mt-3">
         <a href="/formTiketShuttle/customer" class="btn btn-primary">BACK</a>
     </div>
-    @foreach ($jadwal as $no=> $jj)
+    <div>
+        @foreach ($jadwal as $no=> $jj)
         @foreach ($bus as $no=> $b)
         <div class="row mt-3">
             <div class="col">
@@ -60,8 +61,8 @@
                                     <label class="text-lg">{{$jj->harga}}</label>
                                 </div>
                                 <div class="col-md">
-                                    <label>Jumlah Seat:{{$jj->jumlah_kursi}}</label><br>
-                                    <label>Seat Tersedia:</label><br>
+                                    <label>Jumlah Seat: {{$jj->jumlah_kursi}}</label><br>
+                                    <label>Seat Tersedia: {{$jj->jumlah_tiket}}</label><br>
                                     <button type="submit" class="btn btn-danger btn-lg">Book Now!</button>
                                 </div>
                             </div>
@@ -72,5 +73,6 @@
         </div>
         @endforeach
     @endforeach
+    </div>
 </div>
 @endsection

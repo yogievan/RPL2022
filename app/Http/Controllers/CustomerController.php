@@ -20,9 +20,13 @@ class CustomerController extends Controller
 
     public function formShuttle(Request $request)
     {
-        $jadwal = Jadwal::orderBy('id', 'ASC')->paginate(10000);
+        $jadwal = Jadwal::orderBy('id', 'ASC')
+                        ->where('jumlah_tiket','>',0 )
+                        ->paginate(10000);
         $shuttle = Shuttle::orderBy('id', 'ASC')->paginate(10000);
-        $bus = Bus::orderBy('id', 'ASC')->where('id_sifat','2')->paginate(10000);
+        $bus = Bus::orderBy('id', 'ASC')
+                    ->where('id_sifat','2')
+                    ->paginate(10000);
         return view('customer.FormTiketShuttle',['jadwal' => $jadwal, 'shuttle' => $shuttle, 'bus' => $bus]);
     }
     public function searchTiket(Request $request)
@@ -30,12 +34,20 @@ class CustomerController extends Controller
         $shuttle_mulai = $request->shuttle_mulai;
         $shuttle_tujuan = $request->shuttle_tujuan;
         $tgl_jadwal = $request->tgl_jadwal;
-        $jadwal = Jadwal::where('shuttle_mulai','like','%'.$shuttle_mulai.'%')->where('shuttle_tujuan','like','%'.$shuttle_tujuan.'%')->where('tgl_jadwal','like','%'.$tgl_jadwal.'%')->paginate(10000000);
-        $bus = Bus::orderBy('id', 'ASC')->where('id_sifat','2')->paginate(10000000);
+        $jumlah_tiket = $request->jumlah_tiket;
+        $jadwal = Jadwal::where('shuttle_mulai','like','%'.$shuttle_mulai.'%')
+                        ->where('shuttle_tujuan','like','%'.$shuttle_tujuan.'%')
+                        ->where('tgl_jadwal','like','%'.$tgl_jadwal.'%')
+                        ->where('jumlah_tiket','like','%'.$jumlah_tiket.'%')
+                        ->where('jumlah_tiket','>',0 )
+                        ->paginate(10000000);
+        $bus = Bus::orderBy('id', 'ASC')
+                ->where('id_sifat','2')
+                ->paginate(10000000);
         return view('customer.CariTiketShuttle',['jadwal' => $jadwal, 'bus' => $bus]);
     }
 
-    public function bookingTiket($id)
+    public function bookingTiket($id, Request $request)
     {
         $jadwal = Jadwal::find($id);
         return view('customer.BookTiketBus',['jadwal'=>$jadwal]);
@@ -51,6 +63,7 @@ class CustomerController extends Controller
             'shuttle_tujuan' => $request -> shuttle_tujuan,
             'jam_mulai' => $request -> jam_mulai,
             'tgl_jadwal' => $request -> tgl_jadwal,
+            'jumlah_tiket' => $request -> jumlah_tiket,
             'total_bayar' => $request -> total_bayar,
             'bukti_bayar' => $request -> bukti_bayar,
             'validasi' => $request -> validasi,

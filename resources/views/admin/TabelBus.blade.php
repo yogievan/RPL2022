@@ -20,7 +20,7 @@
               <a href="/addDataBus" class="btn btn-outline-white">Tambah Data Bus</a>
             </div>
           </div>
-        </form>
+      </form>
       <div class="card-body bg-white rounded">
           <table class="table table-striped">
               <thead>
