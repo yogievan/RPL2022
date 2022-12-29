@@ -1,4 +1,4 @@
-<@extends('layouts/mainAdmin')
+@extends('layouts/mainAdmin')
 @section('title', '.:Tabel Data Bus:.')
 @section('header')
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">

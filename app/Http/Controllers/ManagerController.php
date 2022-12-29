@@ -26,7 +26,7 @@ class ManagerController extends Controller
             'username' => ['required'],
             'password' => ['required']
         ]);
-        Auth::login($user, true);
+        Auth::login($user);
         return redirect('/DashboardManager');
     }
     public function managerlogout()

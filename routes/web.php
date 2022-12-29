@@ -29,7 +29,6 @@ Route::get('/formSewaBus/book', 'CustomerGuestController@formSewa_book');
 
 Route::group(['middleware' => ['auth']], function () {
 
-
 });
 
 //user
@@ -90,7 +89,7 @@ Route::put('/updateDataJadwal/Update/{id}', 'AdminJadwalController@updateDataJad
 Route::get('/deleteDataJadwal/Delete/{id}', 'AdminJadwalController@deleteDataJadwal_delete');
 Route::get('/Jadwal/search', 'AdminJadwalController@jadwal_search');
 
-Route::get('/admin/logout', 'AuthController@adminlogout');
+Route::get('/admin/logout', 'AdminController@adminlogout');
 
 //manager
 Route::get('/DashboardManager', 'ManagerController@DashboardManager');
@@ -101,4 +100,4 @@ Auth::routes();
 Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-// Route::get('/DashboardAdmin', 'AdminController@DashboardAdmin');
+Route::get('sent-mail', 'TransaksiController@mailSend');

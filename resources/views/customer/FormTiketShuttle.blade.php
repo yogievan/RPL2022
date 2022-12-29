@@ -64,12 +64,6 @@
                         <input type="date" id="tglBerangkat" class="form-control" required>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="tglBerangkat">Jumlah Tiket</label>
-                        <input type="number" class="form-control" required>
-                    </div>
-                </div>
             </div>
             <div class="row m-2">
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Cari</button>
@@ -113,7 +107,7 @@
                                 </div>
                                 <div class="col-md">
                                     <label>Jumlah Seat: {{$jj->jumlah_kursi}}</label><br>
-                                    <label>Seat Tersedia: </label><br>
+                                    <label>Seat Tersedia: {{$jj->jumlah_tiket}}</label><br>
                                     <button type="submit" class="btn btn-danger btn-lg">Book Now!</button>
                                 </div>
                             </div>

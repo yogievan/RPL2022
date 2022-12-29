@@ -8,6 +8,6 @@ class Pribadi extends Model
 {
     protected $table = 'transaksi_pribadi';
     protected $fillable = [
-        'id_bus','nama_user','email','shuttle_asal','shuttle_tujuan','jam_mulai','tgl_jadwal','jumlah_tiket','total_bayar','bukti_bayar','validasi'
+        'id_bus', 'id_jadwal','nama_user','email','shuttle_asal','shuttle_tujuan','jam_mulai','tgl_jadwal','total_bayar','bukti_bayar','validasi'
     ];
 }

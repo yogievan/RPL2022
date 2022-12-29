@@ -16,16 +16,17 @@ class CreateTransaksiPribadiTable extends Migration
         Schema::create('transaksi_pribadi', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_bus');
+            $table->bigInteger('id_jadwal');
             $table->string('nama_user');
             $table->string('email');
             $table->string('shuttle_asal');
             $table->string('shuttle_tujuan');
             $table->string('jam_mulai');
             $table->date('tgl_jadwal');
-            $table->integer('jumlah_tiket');
-            $table->integer('total_bayar');
-            $table->string('bukti_bayar');
+            $table->integer('total_bayar')->nullable();
+            $table->string('bukti_bayar')->nullable();
             $table->string('validasi')->nullable();
+            $table->integer('sisa_tiket')->nullable();
             $table->timestamps();
         });
     }

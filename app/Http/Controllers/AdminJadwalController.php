@@ -31,12 +31,12 @@ class AdminJadwalController extends Controller
     {
         Jadwal::create([
             'id_bus' => $request -> id_bus,
+            'id_jadwal' => $request -> id_jadwal,
             'shuttle_mulai' => $request -> shuttle_mulai,
             'shuttle_tujuan' => $request -> shuttle_tujuan,
             'jam_mulai' => $request -> jam_mulai,
             'tgl_jadwal' => $request -> tgl_jadwal,
             'jumlah_kursi' => $request -> jumlah_kursi,
-            'jumlah_tiket' => $request -> jumlah_tiket,
             'harga' => $request -> harga,
         ]);
         return redirect('/TabelJadwal');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\support\Facades\Auth;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Admin;
 
@@ -26,7 +27,7 @@ class AdminController extends Controller
             'username' => ['required'],
             'password' => ['required']
         ]);
-        Auth::login($user, true);
+        Auth::login($user);
         return redirect('/DashboardAdmin');
     }
     

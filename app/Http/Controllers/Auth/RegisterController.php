@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Admin;
+use App\Manajer;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -39,6 +41,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:manajer');
     }
 
     /**
@@ -57,6 +61,19 @@ class RegisterController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    public function showManajerRegisterForm()
+    {
+        return view('auth.register', ['url' => 'manajer']);
+    }
+
+    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -69,5 +86,27 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function createAdmin(array $data)
+    {
+        $this->validator($request->all())->validate();
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => md5($request->password),
+        ]);
+        return redirect()->intended('admin/Login');
+    }
+
+    protected function createManajer(array $data)
+    {
+        $this->validator($request->all())->validate();
+        Manajer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => md5($request->password),
+        ]);
+        return redirect()->intended('manager/Login');
     }
 }

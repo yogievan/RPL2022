@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\SendMail;
 use App\Pribadi;
 use App\Instansi;
 
@@ -43,5 +44,16 @@ class TransaksiController extends Controller
         $instansi -> save();
 
         return redirect('/TabelTransaksi');
+    }
+
+    public function mailSend()
+    {
+        $details = [
+            'title' => 'Detail Pesanan',
+            'body'=>'keterangan Pesanan'
+        ];
+        \Mail::to('yogievan400@gmail.com')
+                ->send(new SendMail($details));
+        return redirect('/BookingLog');
     }
 }

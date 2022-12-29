@@ -50,25 +50,26 @@ class CustomerController extends Controller
     public function bookingTiket($id, Request $request)
     {
         $jadwal = Jadwal::find($id);
-        return view('customer.BookTiketBus',['jadwal'=>$jadwal]);
+        $jumlah_tiket = $request->jumlah_tiket;
+        return view('customer.BookTiketBus',['jadwal'=>$jadwal, 'jumlah_tiket'=>$jumlah_tiket]);
     }
 
-    public function tansaksi_tiketShuttle(Request $request)
+    public function tansaksi_tiketShuttle($id, Request $request)
     {
         Pribadi::create([
             'id_bus' => $request -> id_bus,
+            'id_jadwal' => $request -> id_jadwal,
             'nama_user' => $request -> nama_user,
             'email' => $request -> email,
             'shuttle_asal' => $request -> shuttle_asal,
             'shuttle_tujuan' => $request -> shuttle_tujuan,
             'jam_mulai' => $request -> jam_mulai,
             'tgl_jadwal' => $request -> tgl_jadwal,
-            'jumlah_tiket' => $request -> jumlah_tiket,
             'total_bayar' => $request -> total_bayar,
             'bukti_bayar' => $request -> bukti_bayar,
             'validasi' => $request -> validasi,
         ]);
-        return redirect('/DashboardCustomer');
+        return redirect('/BookingLog');
     }
 
     public function formSewa()
@@ -102,8 +103,8 @@ class CustomerController extends Controller
 
     public function bookingLog()
     {
-        $pribadi = Pribadi::orderBy('id', 'DESC')->where('email', Auth::user() -> email)->paginate(10);
-        $instansi = Instansi::orderBy('id', 'DESC')->where('email', Auth::user() -> email)->paginate(10);
+        $pribadi = Pribadi::orderBy('id', 'DESC')/*->where('email', Auth::user() -> email)*/->paginate(10);
+        $instansi = Instansi::orderBy('id', 'DESC')/*->where('email', Auth::user() -> email)*/->paginate(10);
         return view('customer.BookingLog', ['pribadi' => $pribadi,'instansi' => $instansi]);
     }
 
