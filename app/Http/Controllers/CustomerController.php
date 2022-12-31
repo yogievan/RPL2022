@@ -56,6 +56,10 @@ class CustomerController extends Controller
 
     public function tansaksi_tiketShuttle($id, Request $request)
     {
+        $jadwal = Jadwal::find($id);
+        $jadwal -> jumlah_tiket = $request -> jumlah_tiket;
+        $jadwal-> save();
+
         Pribadi::create([
             'id_bus' => $request -> id_bus,
             'id_jadwal' => $request -> id_jadwal,

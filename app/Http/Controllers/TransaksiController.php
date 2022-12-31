@@ -46,6 +46,23 @@ class TransaksiController extends Controller
         return redirect('/TabelTransaksi');
     }
 
+    public function tolakValidasiPribadi($id)
+    {
+        $instansi = Pribadi::find($id);
+        $instansi -> validasi = 'TOLAK TRANSAKSI';
+        $instansi -> save();
+
+        return redirect('/TabelTransaksi');
+    }
+    public function tolakValidasiInstansi($id)
+    {
+        $instansi = Instansi::find($id);
+        $instansi -> validasi = 'TOLAK TRANSAKSI';
+        $instansi -> save();
+
+        return redirect('/TabelTransaksi');
+    }
+
     public function mailSend()
     {
         $details = [

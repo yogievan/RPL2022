@@ -57,6 +57,8 @@ Route::get('/DashboardAdmin', 'AdminController@DashboardAdmin');
 Route::get('/TabelTransaksi', 'TransaksiController@TableTransaksi');
 Route::put('/validasiTransaksiPribadi/{id}', 'TransaksiController@validasiPribadi');
 Route::put('/validasiTransaksiInstansi/{id}', 'TransaksiController@validasiInstansi');
+Route::get('/tolakTransaksiInstansi/{id}', 'TransaksiController@tolakValidasiInstansi');
+Route::get('/tolakTransaksiPribadi/{id}', 'TransaksiController@tolakValidasiPribadi');
 
 Route::get('/viewDataTransaksi/pribadi/{id}','TransaksiController@view_tansaksi_pribadi');
 Route::get('/viewDataTransaksi/instansi/{id}','TransaksiController@view_tansaksi_instansi');

@@ -165,6 +165,7 @@
                     <div class="row mt-3">
                         <button class="btn btn-primary btn-lg btn-block">BOOK!</button>
                     </div>
+                    <input type="text" class="form-control" name="jumlah_tiket" value="{{$jadwal -> jumlah_tiket - 1}}" hidden>
                 </div>
             </form>
         </div>

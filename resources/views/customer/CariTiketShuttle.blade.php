@@ -72,7 +72,7 @@
             </div>
         </div>
         @endforeach
-    @endforeach
+        @endforeach
     </div>
 </div>
 @endsection

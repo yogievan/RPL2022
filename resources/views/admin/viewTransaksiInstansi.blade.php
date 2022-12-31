@@ -73,8 +73,11 @@
         </div>
       </div>
         <div class="mt-3">
-          <button type="submit" class="btn btn-warning" onclick="return confirm('Anda Yakin Validasi Data Transaksi?')">Validasi</button>
-            <a href="/TabelTransaksi">
+          <button type="submit" class="btn btn-success" onclick="return confirm('Anda Yakin Validasi Data Transaksi?')"><b>VALIDASI</b></button>
+          <a href="/tolakTransaksiInstansi/{{ $instansi -> id }}">
+            <button type="button" class="btn btn-warning" onclick="return confirm('Anda Yakin Menolak Transaksi?')">Tolak Transaksi</button>
+          </a>  
+          <a href="/TabelTransaksi">
                 <button type="button" class="btn btn-danger">BACK</button>
             </a>
         </div>
