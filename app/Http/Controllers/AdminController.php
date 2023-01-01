@@ -35,6 +35,28 @@ class AdminController extends Controller
         $CountRutePribadi = Pribadi::where('shuttle_tujuan', $namaShuttle)->count('shuttle_tujuan');
         $CountRuteTotalBayar = Pribadi::where('shuttle_tujuan', $namaShuttle)->sum('total_bayar');
 
+        $HalteAdisutjipto = Pribadi::where('shuttle_tujuan', 'Halte Adisutjipto')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteBethesda = Pribadi::where('shuttle_tujuan', 'Halte Bethesda')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteEmpireXXI = Pribadi::where('shuttle_tujuan', 'Halte Empire XXI')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteJantiSelatan = Pribadi::where('shuttle_tujuan', 'Halte Janti Selatan')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteKalasan = Pribadi::where('shuttle_tujuan', 'Halte Kalasan')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteMalioboro = Pribadi::where('shuttle_tujuan', 'Halte Malioboro')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteMCDSudirman = Pribadi::where('shuttle_tujuan', 'Halte MCD Sudirman')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HaltePlazaAmbarukmo = Pribadi::where('shuttle_tujuan', 'Halte Plaza Ambarukmo')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HaltePrambanan = Pribadi::where('shuttle_tujuan', 'Halte Prambanan')->where('validasi','LUNAS')->count('shuttle_tujuan');
+        $HalteTuguJogja = Pribadi::where('shuttle_tujuan', 'Halte Tugu Jogja')->where('validasi','LUNAS')->count('shuttle_tujuan');
+
+        $SumHalteAdisutjipto = Pribadi::where('shuttle_tujuan', 'Halte Adisutjipto')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteBethesda = Pribadi::where('shuttle_tujuan', 'Halte Bethesda')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteEmpireXXI = Pribadi::where('shuttle_tujuan', 'Halte Empire XXI')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteJantiSelatan = Pribadi::where('shuttle_tujuan', 'Halte Janti Selatan')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteKalasan = Pribadi::where('shuttle_tujuan', 'Halte Kalasan')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteMalioboro = Pribadi::where('shuttle_tujuan', 'Halte Malioboro')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteMCDSudirman = Pribadi::where('shuttle_tujuan', 'Halte MCD Sudirman')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHaltePlazaAmbarukmo = Pribadi::where('shuttle_tujuan', 'Halte Plaza Ambarukmo')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHaltePrambanan = Pribadi::where('shuttle_tujuan', 'Halte Prambanan')->where('validasi','LUNAS')->sum('total_bayar');
+        $SumHalteTuguJogja = Pribadi::where('shuttle_tujuan', 'Halte Tugu Jogja')->where('validasi','LUNAS')->sum('total_bayar');
+
         return view('admin.DashboardAdmin', ['cek' => 'dashboard'],
         ['sumPribadi' => $sumPribadi,
         'sumPribadiHarian' => $sumPribadiHarian,
@@ -49,7 +71,27 @@ class AdminController extends Controller
         'year' => $year,
         'CountRutePribadi' => $CountRutePribadi,
         'CountRuteTotalBayar' => $CountRuteTotalBayar,
+        'HalteAdisutjipto' => $HalteAdisutjipto,
+        'HalteBethesda' => $HalteBethesda,
+        'HalteEmpireXXI' => $HalteEmpireXXI,
+        'HalteJantiSelatan' => $HalteJantiSelatan,
+        'HalteKalasan' => $HalteKalasan,
+        'HalteMalioboro' => $HalteMalioboro,
+        'HalteMCDSudirman' => $HalteMCDSudirman,
+        'HaltePlazaAmbarukmo' => $HaltePlazaAmbarukmo,
+        'HaltePrambanan' => $HaltePrambanan,
+        'HalteTuguJogja' => $HalteTuguJogja,
         'namaShuttle' => $namaShuttle,
+        'SumHalteAdisutjipto' => $SumHalteAdisutjipto,
+        'SumHalteBethesda' => $SumHalteBethesda,
+        'SumHalteEmpireXXI' => $SumHalteEmpireXXI,
+        'SumHalteJantiSelatan' => $SumHalteJantiSelatan,
+        'SumHalteKalasan' => $SumHalteKalasan,
+        'SumHalteMalioboro' => $SumHalteMalioboro,
+        'SumHalteMCDSudirman' => $SumHalteMCDSudirman,
+        'SumHaltePlazaAmbarukmo' => $SumHaltePlazaAmbarukmo,
+        'SumHaltePrambanan' => $SumHaltePrambanan,
+        'SumHalteTuguJogja' => $SumHalteTuguJogja,
         'pribadi' => $pribadi,
         'shuttle' => $shuttle]);
     }
