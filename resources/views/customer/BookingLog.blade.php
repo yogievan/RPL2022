@@ -14,7 +14,7 @@
             <a href="/BookingLog" class="text-white mb-0 h1 text-lg">Riwayat Pemesanan</i></a>
           </div>
           <div class="col-2">
-            <a href="/profileUser"><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>
+            <a href="#profileUser"><i class="fas fa-user-circle text-lg text-white mb-0 h1 text-lg">&nbsp {{Auth::user() -> nama_user ?? ''}} </i></a>
           </div>
           <div class="col-1">
             <a href="/logout" class="btn btn-danger m-1">Logout</a>
@@ -55,7 +55,10 @@
                         <td><b>{{$tp -> validasi}}</b></td>
                         <td>
                             <a href="/BookingLog/Shuttle/{{$tp -> id}}" class="btn btn-outline-primary">
-                                View
+                              View
+                            </a>
+                            <a href="/eksportToPDF/Shuttle/{{$tp -> id}}" class="btn btn-outline-success">
+                              Download
                             </a>
                         </td>
                     </tr>
@@ -101,6 +104,9 @@
                         <td>
                             <a href="/BookingLog/Sewa/{{$ti -> id}}" class="btn btn-outline-primary">
                                 View
+                            </a>
+                            <a href="/eksportToPDF/Sewa/{{$ti -> id}}" class="btn btn-outline-success">
+                              Download
                             </a>
                         </td>
                     </tr>

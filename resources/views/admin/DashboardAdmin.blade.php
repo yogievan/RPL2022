@@ -158,8 +158,10 @@
                 <div class="col">
                   <p></p>
                 </div>
-                <div class="col-1">
-                  <button class="btn btn-success">Export to PDF</button>
+                <div class="col-2">
+                  <a href="/transaksiPribadiByRute/eksportToPDF">
+                    <button class="btn btn-success btn-lg">Export to PDF</button>
+                  </a>
                 </div>
               </div>
               <table class="table table-striped table-bordered">

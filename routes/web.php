@@ -47,6 +47,8 @@ Route::get('/BookingLog', 'CustomerController@bookingLog');
 Route::get('/BookingLog/Shuttle/{id}', 'CustomerController@viewbookingLogShuttle');
 Route::get('/BookingLog/Sewa/{id}', 'CustomerController@viewbookingLogSewa');
 
+Route::get('/profileUser/{id}', 'CustomerController@settingProfile');
+
 Route::get('/logout', 'AuthController@logout');
 
 //admin
@@ -95,6 +97,11 @@ Route::get('/admin/logout', 'AdminController@adminlogout');
 
 Route::get('/transaksiPribadiByTime/eksportToPDF', 'GeneratePDFController@transaksiPribadiByTime');
 Route::get('/transaksiInstansiByTime/eksportToPDF', 'GeneratePDFController@transaksiInstansiByTime');
+Route::get('/transaksiPribadiByRute/eksportToPDF', 'GeneratePDFController@transaksiPribadiByRute');
+
+Route::get('/eksportToPDF/Shuttle/{id}', 'GeneratePDFController@downloadTiketPribadi');
+Route::get('/eksportToPDF/Sewa/{id}', 'GeneratePDFController@downloadTiketSewa');
+
 
 //manager
 Route::get('/DashboardManager', 'ManagerController@DashboardManager');

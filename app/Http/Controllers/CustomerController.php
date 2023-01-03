@@ -15,7 +15,8 @@ class CustomerController extends Controller
 {
     public function DashboardCustomer()
     {
-        return view('customer.DashboardCustomer');
+        $user = User::find('nama_user', 'ASC');
+        return view('customer.DashboardCustomer',['user' => $user]);
     }
 
     public function formShuttle(Request $request)
@@ -107,8 +108,8 @@ class CustomerController extends Controller
 
     public function bookingLog()
     {
-        $pribadi = Pribadi::orderBy('id', 'DESC')/*->where('email', Auth::user() -> email)*/->paginate(10);
-        $instansi = Instansi::orderBy('id', 'DESC')/*->where('email', Auth::user() -> email)*/->paginate(10);
+        $pribadi = Pribadi::orderBy('id', 'DESC')->where('email', Auth::user() -> email)->paginate(10);
+        $instansi = Instansi::orderBy('id', 'DESC')->where('email', Auth::user() -> email)->paginate(10);
         return view('customer.BookingLog', ['pribadi' => $pribadi,'instansi' => $instansi]);
     }
 
@@ -122,5 +123,10 @@ class CustomerController extends Controller
     {
         $instansi = Instansi::find($id);
         return view('customer.viewBookingLogInstansi', ['instansi' => $instansi]);
+    }
+
+    public function settingProfile()
+    {
+        return view('customer.settingProfile');
     }
 }
