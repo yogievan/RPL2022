@@ -19,12 +19,12 @@ class AdminController extends Controller
         $day = date('d');
         $month = date('m');
         $year = date('Y');
-        $sumPribadi = Pribadi::where('validasi','LUNAS')->count('validasi');
+        $sumPribadi = Pribadi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->count('validasi');
         $sumPribadiHarian = Pribadi::where('validasi','LUNAS')->whereDay('updated_at', now()->day)->sum('total_bayar');
         $sumPribadiBulanan = Pribadi::where('validasi','LUNAS')->whereMonth('updated_at', now()->month)->sum('total_bayar');
         $sumPribadiTahunan = Pribadi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->sum('total_bayar');
 
-        $sumInstansi = Instansi::where('validasi','LUNAS')->count('validasi');
+        $sumInstansi = Instansi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->count('validasi');
         $sumInstansiHarian = Instansi::where('validasi','LUNAS')->whereDay('updated_at', now()->day)->sum('total_bayar');
         $sumInstansiBulanan = Instansi::where('validasi','LUNAS')->whereMonth('updated_at', now()->month)->sum('total_bayar');
         $sumInstansiTahunan = Instansi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->sum('total_bayar');

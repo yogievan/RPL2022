@@ -38,7 +38,9 @@
             <h4 class="text-white">Transaksi Pemesanan Tiket</h4>
           </div>
           <div class="col-2">
-            <button class="btn btn-success btn-block btn-lg">Export to PDF</button>
+            <a href="/transaksiPribadiByTime/eksportToPDF">
+              <button class="btn btn-success btn-block btn-lg">Export to PDF</button>
+            </a>
           </div>
         </div>
         <div class="row mt-1">
@@ -127,6 +129,9 @@
                       <h5 class="font-weight-bolder">
                         {{$sumPribadi}}
                       </h5>
+                      <p class="mb-0">
+                        Total Transaksi 1 Tahun
+                      </p>
                     </div>
                   </div>
                   <div class="col-4 text-end">
@@ -243,7 +248,9 @@
           </div>
           <div class="col"></div>
           <div class="col-2">
-            <button class="btn btn-success btn-lg">Export to PDF</button>
+            <a href="/transaksiInstansiByTime/eksportToPDF">
+              <button class="btn btn-success btn-lg">Export to PDF</button>
+            </a>
           </div>
         </div>
         <div class="row mt-1">
@@ -332,6 +339,9 @@
                       <h5 class="font-weight-bolder">
                         {{$sumInstansi}}
                       </h5>
+                      <p class="mb-0">
+                        Total Transaksi 1 Tahun
+                      </p>
                     </div>
                   </div>
                   <div class="col-4 text-end">

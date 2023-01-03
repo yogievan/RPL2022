@@ -93,6 +93,9 @@ Route::get('/Jadwal/search', 'AdminJadwalController@jadwal_search');
 
 Route::get('/admin/logout', 'AdminController@adminlogout');
 
+Route::get('/transaksiPribadiByTime/eksportToPDF', 'GeneratePDFController@transaksiPribadiByTime');
+Route::get('/transaksiInstansiByTime/eksportToPDF', 'GeneratePDFController@transaksiInstansiByTime');
+
 //manager
 Route::get('/DashboardManager', 'ManagerController@DashboardManager');
 Route::get('/manager/logout', 'ManagerController@managerlogout');
