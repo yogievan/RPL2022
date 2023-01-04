@@ -32,7 +32,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 //user
-Route::get('/DashboardCustomer', 'CustomerController@DashboardCustomer');
+Route::get('/home', 'CustomerController@DashboardCustomer');
+Route::get('/DashboardCustomer', 'CustomerController@DashboardCustomer_home');
 
 Route::get('/formTiketShuttle/customer', 'CustomerController@formShuttle');
 Route::get('/searchTiket/customer', 'CustomerController@searchTiket');
@@ -111,5 +112,3 @@ Auth::routes();
 
 Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::get('sent-mail', 'TransaksiController@mailSend');

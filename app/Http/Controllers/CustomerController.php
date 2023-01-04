@@ -17,6 +17,10 @@ class CustomerController extends Controller
     {
         return view('customer.DashboardCustomer');
     }
+    public function DashboardCustomer_home()
+    {
+        return view('customer.DashboardCustomer');
+    }
 
     public function formShuttle(Request $request)
     {

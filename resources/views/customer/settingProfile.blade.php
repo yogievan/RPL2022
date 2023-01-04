@@ -14,7 +14,7 @@
           <div class="row">
             <nav class="navbar navbar-expand-lg rounded">
               <div class="col">
-                <a class="navbar-brand text-white mb-0 h1 text-lg" href="/DashboardCustomer">
+                <a class="navbar-brand text-white mb-0 h1 text-lg" href="/home">
                   <img src="../assets/img/bus-solid-light.png" width="40" height="32" class="navbar-brand-img h-100" alt="main_logo">
                   &nbsp BookingBus.com
                 </a>

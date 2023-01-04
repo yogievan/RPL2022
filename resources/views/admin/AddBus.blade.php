@@ -52,7 +52,7 @@
 
       <div class="mt-3">
           <label class="text-white">Upload Gambar</label>
-          <input class="form-control rounded" type="file" placeholder="File Gambar" name="gambar_bus">
+          <input class="form-control rounded" type="file" placeholder="File Gambar" name="gambar_bus" required>
       </div>
 
       <div class="mt-3">
