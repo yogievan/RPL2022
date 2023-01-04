@@ -246,7 +246,7 @@
       <div class="row mt-5">
         <div class="row">
           <div class="col-3">
-            <h4 class="text-white">Transaksi Pemesanan Bus</h4>
+            <h4 class="text-white">Transaksi Pemesanan Instansi</h4>
           </div>
           <div class="col"></div>
           <div class="col-2">
