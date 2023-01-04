@@ -26,7 +26,6 @@
     </div>
     <div>
         @foreach ($jadwal as $no=> $jj)
-        @foreach ($bus as $no=> $b)
         <div class="row mt-3">
             <div class="col">
                 <div class="row bg-light g-0 border rounded overflow-hidden position-relative">
@@ -34,7 +33,7 @@
                         <form action="/book/tiket/shuttle/customer/{{$jj -> id}}">
                             <div class="row">
                                 <div class="col">
-                                    <img class="rounded" src="{{url('/assets/img/Bus/'.$b -> gambar_bus)}}" alt="logo bus" width="220" height="120">
+                                    <img class="rounded" src="{{url('/assets/img/Bus/Bus-Mercedes-Benz.jpg')}}" alt="logo bus" width="220" height="120">
                                 </div>
                                 <div class="col-1">
                                     <label>BUS</label><br>
@@ -71,7 +70,6 @@
                 </div>
             </div>
         </div>
-        @endforeach
         @endforeach
     </div>
 </div>

@@ -17,6 +17,10 @@
             <div class="card-body m-2">
               <div class="row mt-3">
                 <div class="col">
+                    <label class="text-dark">ID Transaksi</label>
+                    <h4 class="text-lg text-dark" name="id">{{$instansi->id}}</h4>
+                </div>
+                <div class="col">
                     <label class="text-dark">Kode Bus</label>
                     <h2 class="text-lg text-dark" name="id_bus">{{$instansi->id_bus}}</h2>
                 </div>
@@ -61,7 +65,7 @@
                   <div class="col">
                       <label class="text-dark">Keterangan Validasi</label>
                       <h2 class="text-dark text-bold" name="validasi">{{$instansi->validasi}}</h2>
-                      <p>Tanggal Validai: {{$instansi->updated_at}}</p>
+                      <p>Tanggal Validasi: {{$instansi->updated_at}}</p>
                   </div>
               </div>
             </div>

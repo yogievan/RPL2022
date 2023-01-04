@@ -36,14 +36,14 @@
       <div class="row align-items-md-stretch mt-3">
       <div class="col-md-6">
         <div class="h-100 p-5 text-bg-warning rounded-3">
-          <h2>Form Sewa Bus</h2>
+          <h2>Formulir Sewa Bus</h2>
           <p>Pemesanan Bus untuk Institusi dengan pesanan 1 Bus Besar.</p>
           <a href="/formSewaBus"><button class="btn btn-outline-light" type="button">Go to <u>FORM</u></button></a>
         </div>
       </div>
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Form Tiket Bus</h2>
+          <h2>Formulir Tiket Bus</h2>
           <p>Tiket bus yang memiliki rute diyogyakarta, digunakan untuk memutari kota yogyakarta.</p>
           <a href="/formTiketShuttle"><button class="btn btn-outline-warning" type="button">Go to <u>FORM</u></button></a>
         </div>

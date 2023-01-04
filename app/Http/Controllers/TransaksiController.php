@@ -54,6 +54,14 @@ class TransaksiController extends Controller
         $instansi -> validasi = $request->validasi;
         $instansi -> save();
 
+        // $pdf = PDF::loadView('PDF.DownloadTiketInstansi', ['instansi' => $instansi]);
+        // $mail = new DemoMail($data);
+        // $mail->attachData($pdf->output(),"Detail Invoice.pdf");
+        
+        // if($mail){
+        //     Mail::to($pribadi -> email)->send($mail);
+        // }
+
         return redirect('/TabelTransaksi');
     }
 
