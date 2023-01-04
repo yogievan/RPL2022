@@ -7,10 +7,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class HelloMail extends Mailable
+class DemoMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    
+    public $data;
     /**
      * Create a new message instance.
      *
@@ -18,7 +19,7 @@ class HelloMail extends Mailable
      */
     public function __construct()
     {
-        $this->order = $order;
+        $this -> data = $data;
     }
 
     /**
@@ -28,7 +29,7 @@ class HelloMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.hello')
-            ->subject('Detail Pemesanan');
+        return $this->subject('Mail from BookingBus.com')
+                    ->markdown('emails.hello');
     }
 }

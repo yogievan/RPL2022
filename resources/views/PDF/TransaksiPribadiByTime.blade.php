@@ -15,7 +15,7 @@
 <div class="numbers mt-5">
     <h3 class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Perhari</h3>
     <h5 class="font-weight-bolder">
-      {{$sumPribadiHarian}}
+      Rp. {{$sumPribadiHarian}}
     </h5>
 </div>
 <div class="mt-3">
@@ -25,7 +25,7 @@
 <div class="numbers mt-3">
     <h3 class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Perbulan</h3>
     <h5 class="font-weight-bolder">
-      {{$sumPribadiBulanan}}
+      Rp. {{$sumPribadiBulanan}}
     </h5>
     <p class="mb-0">
       Bulan :
@@ -35,7 +35,7 @@
   <div class="numbers mt-3">
     <h3 class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Pertahun</h3>
     <h5 class="font-weight-bolder">
-      {{$sumPribadiTahunan}}
+      Rp. {{$sumPribadiTahunan}}
     </h5>
     <p class="mb-0">
       Tahun :

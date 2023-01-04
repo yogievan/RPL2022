@@ -52,7 +52,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Perhari</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumPribadiHarian}}
+                        Rp. {{$sumPribadiHarian}}
                       </h5>
                       <p class="mb-0">
                         Tanggal :
@@ -77,7 +77,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Perbulan</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumPribadiBulanan}}
+                        Rp. {{$sumPribadiBulanan}}
                       </h5>
                       <p class="mb-0">
                         Bulan :
@@ -102,7 +102,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Pertahun</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumPribadiTahunan}}
+                        Rp. {{$sumPribadiTahunan}}
                       </h5>
                       <p class="mb-0">
                         Tahun :
@@ -127,7 +127,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Masuk/Berhasil</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumPribadi}}
+                        {{$sumPribadi}} Tiket
                       </h5>
                       <p class="mb-0">
                         Total Transaksi 1 Tahun
@@ -264,7 +264,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Perhari</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumInstansiHarian}}
+                        Rp. {{$sumInstansiHarian}}
                       </h5>
                       <p class="mb-0">
                         Tanggal :
@@ -289,7 +289,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Perbulan</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumInstansiBulanan}}
+                        Rp. {{$sumInstansiBulanan}}
                       </h5>
                       <p class="mb-0">
                         Bulan :
@@ -314,7 +314,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Pertahun</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumInstansiTahunan}}
+                        Rp. {{$sumInstansiTahunan}}
                       </h5>
                       <p class="mb-0">
                         Tahun :
@@ -339,7 +339,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Transaksi Masuk/Berhasil</p>
                       <h5 class="font-weight-bolder">
-                        {{$sumInstansi}}
+                        {{$sumInstansi}} Invoice
                       </h5>
                       <p class="mb-0">
                         Total Transaksi 1 Tahun

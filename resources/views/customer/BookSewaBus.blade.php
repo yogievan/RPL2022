@@ -154,6 +154,9 @@
                             <div class="col">
                                 <p></p>
                             </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="validasi" value="Menunggu Validasi" hidden>
+                            </div>
                         </div>
                     </div>
                 </div>

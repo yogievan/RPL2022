@@ -31,9 +31,6 @@ class AdminController extends Controller
         
         $shuttle = Shuttle::orderBy('nama_shuttle','ASC')->paginate(100000);
         $pribadi = Pribadi::orderBy('id','ASC')->paginate(100000);
-        $namaShuttle = Shuttle::orderBy('id','ASC')->value('nama_shuttle');
-        $CountRutePribadi = Pribadi::where('shuttle_tujuan', $namaShuttle)->count('shuttle_tujuan');
-        $CountRuteTotalBayar = Pribadi::where('shuttle_tujuan', $namaShuttle)->sum('total_bayar');
 
         $HalteAdisutjipto = Pribadi::where('shuttle_tujuan', 'Halte Adisutjipto')->where('validasi','LUNAS')->count('shuttle_tujuan');
         $HalteBethesda = Pribadi::where('shuttle_tujuan', 'Halte Bethesda')->where('validasi','LUNAS')->count('shuttle_tujuan');
@@ -69,8 +66,6 @@ class AdminController extends Controller
         'day' => $day,
         'month' => $month,
         'year' => $year,
-        'CountRutePribadi' => $CountRutePribadi,
-        'CountRuteTotalBayar' => $CountRuteTotalBayar,
         'HalteAdisutjipto' => $HalteAdisutjipto,
         'HalteBethesda' => $HalteBethesda,
         'HalteEmpireXXI' => $HalteEmpireXXI,
@@ -81,7 +76,6 @@ class AdminController extends Controller
         'HaltePlazaAmbarukmo' => $HaltePlazaAmbarukmo,
         'HaltePrambanan' => $HaltePrambanan,
         'HalteTuguJogja' => $HalteTuguJogja,
-        'namaShuttle' => $namaShuttle,
         'SumHalteAdisutjipto' => $SumHalteAdisutjipto,
         'SumHalteBethesda' => $SumHalteBethesda,
         'SumHalteEmpireXXI' => $SumHalteEmpireXXI,

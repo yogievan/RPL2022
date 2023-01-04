@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\SendMail;
+use Mail;
+use PDF;
+use App;
+use App\Mail\DemoMail;
 use App\Pribadi;
 use App\Instansi;
 
@@ -34,6 +37,14 @@ class TransaksiController extends Controller
         $pribadi = Pribadi::find($id);
         $pribadi -> validasi = $request->validasi;
         $pribadi -> save();
+
+        // $pdf = PDF::loadView('PDF.DownloadTiketPribadi', ['pribadi' => $pribadi]);
+        // $mail = new DemoMail($data);
+        // $mail->attachData($pdf->output(),"Detail Invoice.pdf");
+        
+        // if($mail){
+        //     Mail::to($pribadi -> email)->send($mail);
+        // }
 
         return redirect('/TabelTransaksi');
     }

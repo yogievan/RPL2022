@@ -15,8 +15,7 @@ class CustomerController extends Controller
 {
     public function DashboardCustomer()
     {
-        $user = User::find('nama_user', 'ASC');
-        return view('customer.DashboardCustomer',['user' => $user]);
+        return view('customer.DashboardCustomer');
     }
 
     public function formShuttle(Request $request)
@@ -103,7 +102,7 @@ class CustomerController extends Controller
             'bukti_bayar' => $request -> bukti_bayar,
             'validasi' => $request -> validasi,
         ]);
-        return redirect('/DashboardCustomer');
+        return redirect('/BookingLog');
     }
 
     public function bookingLog()

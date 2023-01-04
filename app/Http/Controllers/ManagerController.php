@@ -23,16 +23,14 @@ class ManagerController extends Controller
         $sumPribadiBulanan = Pribadi::where('validasi','LUNAS')->whereMonth('updated_at', now()->month)->sum('total_bayar');
         $sumPribadiTahunan = Pribadi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->sum('total_bayar');
 
-        $sumInstansi = Instansi::where('validasi','LUNAS')->count('validasi');
+        $sumInstansi = Instansi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->count('validasi');
         $sumInstansiHarian = Instansi::where('validasi','LUNAS')->whereDay('updated_at', now()->day)->sum('total_bayar');
         $sumInstansiBulanan = Instansi::where('validasi','LUNAS')->whereMonth('updated_at', now()->month)->sum('total_bayar');
         $sumInstansiTahunan = Instansi::where('validasi','LUNAS')->whereYear('updated_at', now()->year)->sum('total_bayar');
         
         $shuttle = Shuttle::orderBy('nama_shuttle','ASC')->paginate(100000);
         $pribadi = Pribadi::orderBy('id','ASC')->paginate(100000);
-        $namaShuttle = Shuttle::orderBy('id','ASC')->value('nama_shuttle');
-        $CountRutePribadi = Pribadi::where('shuttle_tujuan', $namaShuttle)->count('shuttle_tujuan');
-        $CountRuteTotalBayar = Pribadi::where('shuttle_tujuan', $namaShuttle)->sum('total_bayar');
+
         $HalteAdisutjipto = Pribadi::where('shuttle_tujuan', 'Halte Adisutjipto')->where('validasi','LUNAS')->count('shuttle_tujuan');
         $HalteBethesda = Pribadi::where('shuttle_tujuan', 'Halte Bethesda')->where('validasi','LUNAS')->count('shuttle_tujuan');
         $HalteEmpireXXI = Pribadi::where('shuttle_tujuan', 'Halte Empire XXI')->where('validasi','LUNAS')->count('shuttle_tujuan');
@@ -67,8 +65,6 @@ class ManagerController extends Controller
         'day' => $day,
         'month' => $month,
         'year' => $year,
-        'CountRutePribadi' => $CountRutePribadi,
-        'CountRuteTotalBayar' => $CountRuteTotalBayar,
         'HalteAdisutjipto' => $HalteAdisutjipto,
         'HalteBethesda' => $HalteBethesda,
         'HalteEmpireXXI' => $HalteEmpireXXI,
@@ -89,7 +85,6 @@ class ManagerController extends Controller
         'SumHaltePlazaAmbarukmo' => $SumHaltePlazaAmbarukmo,
         'SumHaltePrambanan' => $SumHaltePrambanan,
         'SumHalteTuguJogja' => $SumHalteTuguJogja,
-        'namaShuttle' => $namaShuttle,
         'pribadi' => $pribadi,
         'shuttle' => $shuttle]);
     }
